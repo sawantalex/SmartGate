@@ -1,0 +1,13 @@
+[
+  {
+    "passId": "PASS-001",
+    "visitorId": "VIS-1731234567890",
+    "fullName": "John Doe",
+    "company": "Acme Corp",
+    "department": "Production",
+    "purpose": "Equipment inspection",
+    "visitDate": "2025-03-11T09:00:00.000Z",
+    "validUntil": "2025-03-11T18:00:00.000Z",
+    "status": "active"
+  }
+]

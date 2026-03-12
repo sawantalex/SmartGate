@@ -1,0 +1,35 @@
+[
+  {
+    "id": "VIS-1731234567890",
+    "fullName": "John Doe",
+    "company": "Acme Corp",
+    "mobile": "+1234567890",
+    "email": "john@acme.com",
+    "department": "Production",
+    "purpose": "Equipment inspection",
+    "visitDate": "2025-03-11T09:00:00.000Z",
+    "status": "approved"
+  },
+  {
+    "id": "VIS-1731234567891",
+    "fullName": "Jane Smith",
+    "company": "Tech Solutions Ltd",
+    "mobile": "+1987654321",
+    "email": "jane@techsol.com",
+    "department": "Maintenance",
+    "purpose": "Maintenance support",
+    "visitDate": "2025-03-11T10:30:00.000Z",
+    "status": "pending"
+  },
+  {
+    "id": "VIS-1731234567892",
+    "fullName": "Alex Kumar",
+    "company": "Global Industries",
+    "mobile": "+1122334455",
+    "email": "alex@global.com",
+    "department": "Admin",
+    "purpose": "Contract review",
+    "visitDate": "2025-03-11T14:00:00.000Z",
+    "status": "rejected"
+  }
+]

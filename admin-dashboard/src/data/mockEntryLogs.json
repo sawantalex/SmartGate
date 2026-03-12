@@ -1,0 +1,18 @@
+[
+  {
+    "id": "LOG-001",
+    "visitorId": "VIS-1731234567890",
+    "visitorName": "John Doe",
+    "company": "Acme Corp",
+    "action": "entry",
+    "timestamp": "2025-03-11T09:15:00.000Z"
+  },
+  {
+    "id": "LOG-002",
+    "visitorId": "VIS-1731234567889",
+    "visitorName": "Sarah Williams",
+    "company": "Delta Inc",
+    "action": "exit",
+    "timestamp": "2025-03-10T17:00:00.000Z"
+  }
+]
