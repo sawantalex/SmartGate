@@ -1,6 +1,4 @@
 {
-  "buildCommand": "cd user-app && npm install && npm run build",
-  "outputDirectory": "user-app/dist",
   "rewrites": [
     {
       "source": "/(.*)",
