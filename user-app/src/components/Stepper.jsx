@@ -1,11 +1,12 @@
-import { ClipboardList, Camera, Shield, Lock, QrCode } from "lucide-react"
+import { ClipboardList, Smartphone, Camera, Shield, Lock, QrCode } from "lucide-react"
 
 const steps = [
   { label: "Registration", Icon: ClipboardList },
-  { label: "Identity Verification (Selfie)", Icon: Camera },
+  { label: "OTP Mobile", Icon: Smartphone },
+  { label: "AI Selfie", Icon: Camera },
   { label: "Safety Training", Icon: Shield },
   { label: "Quiz", Icon: Lock },
-  { label: "Visitor Pass", Icon: QrCode },
+  { label: "QR Pass", Icon: QrCode },
 ]
 
 export default function Stepper({ currentStep = 0 }) {
@@ -15,21 +16,21 @@ export default function Stepper({ currentStep = 0 }) {
 
   return (
     <nav
-      className="w-full bg-white backdrop-blur-sm"
+      className="w-full bg-white/95 border-b border-amber-200/60 py-3 text-slate-800"
       role="navigation"
       aria-label="Registration progress"
     >
-      <div className="mx-auto flex max-w-2xl flex-col px-4 py-3">
+      <div className="mx-auto flex max-w-3xl flex-col px-4">
         <div className="relative flex items-center justify-between gap-2 sm:gap-4">
-          {/* Gray connecting line */}
+          {/* Base connecting line */}
           <div
-            className="pointer-events-none absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-gray-200"
+            className="pointer-events-none absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-slate-200"
             aria-hidden
           />
 
-          {/* Accent progress line with smooth transition */}
+          {/* Royal Gold progress line */}
           <div
-            className="pointer-events-none absolute left-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-[#3b82f6] transition-[width] duration-500 ease-out"
+            className="pointer-events-none absolute left-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 transition-[width] duration-500 ease-out shadow-xs"
             style={{ width: `${Math.max(0, progress)}%` }}
             aria-hidden
           />
@@ -40,8 +41,8 @@ export default function Stepper({ currentStep = 0 }) {
             const Icon = step.Icon
 
             const circleStyles = isCompleted || isActive
-              ? "bg-[#3b82f6] text-white border-[#3b82f6]"
-              : "bg-gray-100 text-gray-400 border-gray-200"
+              ? "bg-amber-500 text-slate-950 border-amber-400 shadow-md shadow-amber-500/20 font-bold"
+              : "bg-slate-100 text-slate-400 border-slate-200"
 
             return (
               <div
@@ -49,9 +50,9 @@ export default function Stepper({ currentStep = 0 }) {
                 className="relative z-10 flex flex-1 flex-col items-center"
               >
                 <div
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 sm:h-10 sm:w-10 transition-all duration-300 ${circleStyles}`}
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border sm:h-9 sm:w-9 transition-all duration-300 ${circleStyles}`}
                 >
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+                  <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
                 </div>
               </div>
             )
@@ -64,7 +65,7 @@ export default function Stepper({ currentStep = 0 }) {
             const isActive = index === safeStep
             const isCompleted = index < safeStep
             const labelStyles =
-              isActive || isCompleted ? "text-[#3b82f6]" : "text-gray-400"
+              isActive || isCompleted ? "text-amber-700 font-bold" : "text-slate-400 font-medium"
 
             return (
               <div
@@ -72,7 +73,7 @@ export default function Stepper({ currentStep = 0 }) {
                 className="min-w-0 flex-1 text-center"
               >
                 <span
-                  className={`block text-[0.6rem] leading-tight sm:text-xs font-medium truncate px-0.5 ${labelStyles}`}
+                  className={`block text-[0.65rem] leading-tight sm:text-xs truncate px-0.5 ${labelStyles}`}
                 >
                   {step.label}
                 </span>

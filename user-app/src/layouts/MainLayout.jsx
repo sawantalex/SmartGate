@@ -4,6 +4,7 @@ import Stepper from "../components/Stepper"
 
 const STEP_ROUTES = [
   "/register",
+  "/otp-verification",
   "/selfie",
   "/training",
   "/quiz",
@@ -17,9 +18,9 @@ export default function MainLayout() {
   const showStepper = stepIndex >= 0
 
   return (
-    <div className={`min-h-screen flex flex-col ${isLanding ? "bg-[#eff6ff]" : "bg-white"}`}>
+    <div className={`min-h-screen flex flex-col ${isLanding ? "bg-amber-50/30" : "bg-slate-50"}`}>
       {!isLanding && (
-        <header className="sticky top-0 z-30 bg-slate-800 shadow-sm transition-opacity duration-200">
+        <header className="sticky top-0 z-30 bg-white border-b border-amber-200/60 shadow-sm">
           <Navbar />
           {showStepper && <Stepper currentStep={stepIndex} />}
         </header>
@@ -28,7 +29,7 @@ export default function MainLayout() {
         className={
           isLanding
             ? "flex-1"
-            : "flex-1 w-full max-w-2xl mx-auto px-4 py-6 sm:py-8"
+            : "flex-1 w-full max-w-3xl mx-auto px-4 py-6 sm:py-8"
         }
       >
         <Outlet />
