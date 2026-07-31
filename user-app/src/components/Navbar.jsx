@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { ShieldCheck, Menu, X, Home, UserPlus, BadgeCheck, Lock } from "lucide-react"
+import { getAdminUrl } from "../utils/api"
 
 const navLinks = [
   { to: "/", label: "Home", icon: Home },
@@ -45,9 +46,9 @@ export default function Navbar() {
               )
             })}
 
-            {/* Admin Panel Login Button */}
+            {/* Dynamic Admin Panel Login Button */}
             <a
-              href="http://localhost:5174"
+              href={getAdminUrl()}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-3.5 py-2 text-xs font-bold text-white shadow-md transition hover:bg-black active:scale-95 ml-2"
@@ -83,7 +84,7 @@ export default function Navbar() {
             })}
 
             <a
-              href="http://localhost:5174"
+              href={getAdminUrl()}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 text-xs font-bold bg-slate-900 text-white rounded-xl p-2.5 justify-center mt-1"

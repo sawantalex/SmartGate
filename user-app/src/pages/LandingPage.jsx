@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { getStoredApiUrl, setStoredApiUrl } from "../utils/api"
+import { getStoredApiUrl, setStoredApiUrl, getAdminUrl } from "../utils/api"
 import { DEPARTMENTS, getDepartmentData } from "../data/departmentSafety"
 import {
   ShieldCheck,
@@ -99,7 +99,7 @@ export default function LandingPage() {
 
           <div className="flex items-center gap-3">
             <a
-              href="http://localhost:5174"
+              href={getAdminUrl()}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-black active:scale-95"
@@ -157,7 +157,7 @@ export default function LandingPage() {
               </button>
 
               <a
-                href="http://localhost:5174"
+                href={getAdminUrl()}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-900 px-7 py-4 text-base font-extrabold text-white shadow-xl transition hover:bg-black active:scale-98"
