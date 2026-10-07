@@ -60,7 +60,7 @@ export default function OTPVerification() {
         body: JSON.stringify({ otpVerified: true }),
       })
 
-      setVisitor(updated)
+      setVisitor((prev) => ({ ...prev, ...updated, otpVerified: true }))
       navigate("/selfie")
     } catch (err) {
       setError(err.message || "Invalid OTP code. Please check the code sent to your mobile.")

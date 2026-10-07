@@ -91,7 +91,13 @@ export default function Quiz() {
             preAuthStatus: "Pre-Authorized",
           }),
         })
-        setVisitor(updatedVisitor)
+        setVisitor((prev) => ({
+          ...prev,
+          ...updatedVisitor,
+          safetyTrainingStatus: "completed",
+          quizScore: finalScore,
+          preAuthStatus: "Pre-Authorized",
+        }))
 
         const passData = await api("/api/passes", {
           method: "POST",

@@ -103,7 +103,7 @@ export default function SelfieVerification() {
           faceEmbedding: mockEmbedding
         }),
       })
-      setVisitor(updated)
+      setVisitor((prev) => ({ ...prev, ...updated, selfie, faceEmbedding: mockEmbedding }))
       navigate("/training")
     } catch (err) {
       setError(err.message || "Failed to save identity photo")

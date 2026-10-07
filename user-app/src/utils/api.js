@@ -115,6 +115,44 @@ export async function api(path, options = {}) {
       }
     }
 
+    // Fallback for updating visitor record (PATCH / PUT) when server is offline/unreachable
+    if ((options.method === "PATCH" || options.method === "PUT") && path.includes("/visitors")) {
+      const body = options.body ? JSON.parse(options.body) : {}
+      const urlParts = path.split("/")
+      const visitorId = urlParts[urlParts.length - 1] || `VIS-${Date.now()}`
+      return {
+        id: visitorId,
+        _id: visitorId,
+        ...body,
+        localMode: true
+      }
+    }
+
+    // Fallback for fetching visitor record (GET /visitors/:id) when server is offline
+    if ((!options.method || options.method === "GET") && path.includes("/visitors/")) {
+      const urlParts = path.split("/")
+      const visitorId = urlParts[urlParts.length - 1]
+      return {
+        id: visitorId,
+        _id: visitorId,
+        localMode: true
+      }
+    }
+
+    // Fallback for creating pass (POST /passes) when server is offline
+    if (options.method === "POST" && path.includes("/passes")) {
+      const body = options.body ? JSON.parse(options.body) : {}
+      return {
+        id: `PASS-${Date.now()}`,
+        _id: `PASS-${Date.now()}`,
+        visitorId: body.visitorId || "VIS-DEMO",
+        qrCode: `SMARTGATE-PASS-${Date.now()}`,
+        status: "active",
+        createdAt: new Date().toISOString(),
+        localMode: true
+      }
+    }
+
     throw new Error("Cannot reach server. Enter your computer's IP on the home screen or deploy the backend API.")
   }
 }
